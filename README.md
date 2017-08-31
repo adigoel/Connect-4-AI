@@ -27,4 +27,17 @@ To play against the bot as a human go into the main function and uncomment the l
 
 To train the model against a random legal move player, uncomment: humanInput = int(random.randint(0,6))
 
+To train the model against a heuristic algorithm, uncomment the relevant lines.
+
+Example output should look like:
+
+[["b", "b", "b", "b", "b", "b", "b"],
+ ["b", "b", "b", "b", "b", "b", "b"],
+ ["b", "b", "b", "b", "b", "b", "b"],
+ ["b", "b", "b", "x", "b", "b", "b"],
+ ["b", "b", "o", "o", "b", "b", "b"],
+ ["b", "x", "o", "x", "b", "b", "b"]]
+
+Have Fun!
+
 Each time a game ends a new one starts so do ctrl+c to move quit!
