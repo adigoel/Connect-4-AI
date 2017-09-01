@@ -20,9 +20,6 @@ Y2 = dataset2.iloc[:, 43].values
 
 def memory(final,csvX,goes,X2,table,floor):
     if final == True:
-        print(csvX)
-        
-        print(len(csvX[0]))
         alpha = 0.9
         t = 0
         csvY = []
@@ -361,9 +358,7 @@ def competitorHeuristic(table,floor):
     except IndexError:
         pass
     
-    print(legitimateColumns)
     for x in legitimateColumns:
-        print(x)
         table[floor[x]][x] = "o"
         twos = 0
         threes = 0
@@ -381,6 +376,7 @@ def competitorHeuristic(table,floor):
                                 if table[x-2][u] == "o":
                                     threes = threes+1
                                     if table[x-3][u] == "o":
+                    
                                         fours = fours+1
                             
                             if table[x][u+1] == "o":
@@ -445,7 +441,7 @@ def checkWin(table,lit,final,floor,typ):
                     if table[x][u] == "b":
                         pass
  
-                    elif table[x][u] == "o":
+                    if table[x][u] == "o":
                         if table[x-1][u] == "o":
                             pass
                             if table[x-2][u] == "o":
@@ -497,7 +493,7 @@ def checkWin(table,lit,final,floor,typ):
                                                 print(a)"""
                                                 
                                                 
-                    elif table[x][u] == "x":
+                    if table[x][u] == "x":
                         if table[x-1][u] == "x":
                             pass
                             if table[x-2][u] == "x":
@@ -556,17 +552,17 @@ def checkWin(table,lit,final,floor,typ):
         if lit == 999:
             pass
         else:
-            table[floor[lit]][lit] = typ
+            table[floor[lit]][lit] = "x"
         for x in range(5,-1,-1):
             for u in range(7):
                 try:
                          
-                    if table[x][u] == typ:
-                        if table[x-1][u] == typ:
+                    if table[x][u] == "x":
+                        if table[x-1][u] == "x":
                             pass
-                            if table[x-2][u] == typ:
+                            if table[x-2][u] == "x":
                                 pass
-                                if table[x-3][u] == typ:
+                                if table[x-3][u] == "x":
                                     if x > 2:
                                         print("x wins v")
                                         return("win")
@@ -574,11 +570,11 @@ def checkWin(table,lit,final,floor,typ):
                                         for a in table:
                                             print(a)"""
                         
-                        if table[x][u+1] == typ:
+                        if table[x][u+1] == "x":
                             pass
-                            if table[x][u+2] == typ:
+                            if table[x][u+2] == "x":
                                 pass
-                                if table[x][u+3] == typ:
+                                if table[x][u+3] == "x":
                                     if u<4:
                                         print("x wins h")
                                         return("win")
@@ -587,11 +583,11 @@ def checkWin(table,lit,final,floor,typ):
                                         for a in table:
                                             print(a)"""
                         
-                        if table[x-1][u+1] == typ:
+                        if table[x-1][u+1] == "x":
                             pass
-                            if table[x-2][u+2] == typ:
+                            if table[x-2][u+2] == "x":
                                 pass
-                                if table[x-3][u+3] == typ:
+                                if table[x-3][u+3] == "x":
                                     if x>2:
                                         if u<4:
                                             print("x wins dr")
@@ -600,11 +596,11 @@ def checkWin(table,lit,final,floor,typ):
                                             for a in table:
                                                 print(a)"""
                         
-                        if table[x+1][u+1] == typ:
+                        if table[x+1][u+1] == "x":
                             pass
-                            if table[x+2][u+2] == typ:
+                            if table[x+2][u+2] == "x":
                                 pass
-                                if table[x+3][u+3] == typ:
+                                if table[x+3][u+3] == "x":
                                     if x<3:
                                         if u<4:
                                             print("x wins dd")
