@@ -1,5 +1,5 @@
 # Connect-4-AI
-A Connect 4 Agent that learns to play to a proficient level using Deep Learning - My Submission for the St. Paul's High Master's Prize.
+A Connect 4 Agent that learns to play to a proficient level using Deep Learning - Exploring Deep Learning, Neural Networks, Reinforcement Learning, and Intelligence through looking at how we can use modern techniques to play board games in an intelligent (and non brute force) manner - My Submission for the St. Paul's High Master's Prize.
 
 The project draws on papers by Mathew Lai and his Giraffe Deep Learning Chess Engine and Gerald Tesauro, author of TD-Gammon.
 Due to the requisite that a submission of non-essay format be of comparable length to a 2500 word essay, descriptions will be kept succinct and links to sources provided.
