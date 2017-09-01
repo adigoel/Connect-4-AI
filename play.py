@@ -162,7 +162,7 @@ def trainer(ingame,X2,a,Y2,goes,csvX):
         classifier.add(Dense(units = 42, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
         classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-        classifier.fit(X_train, y_train, batch_size = 25, epochs = 2)
+        classifier.fit(X_train, y_train, batch_size = 50, epochs = 2)
         y_pred = classifier.predict(X_test)
         y_pred = (y_pred > 0.5)
         predictions = []
@@ -320,9 +320,6 @@ def legitimateMoves(table,floor,X2,Y2,goes,csvX):
         if checkWin(table,x,True,floor,"x") == "win":
             return(x)
         elif checkWin(table,x,True,floor,"o") == "win":
-            goes = goes+1
-            turn = "o"
-            main(goes,turn,floor,table,False,X2,Y2,csvX)
             return(x)
         else:
             #print("norm")
@@ -437,7 +434,6 @@ def competitorHeuristic(table,floor):
 
 def checkWin(table,lit,final,floor,typ):
     if final == False:
-        
         for x in range(5,-1,-1):
             for u in range(7):
                 try:
@@ -490,8 +486,7 @@ def checkWin(table,lit,final,floor,typ):
                                             """table[x][u],table[x+1][u+1],table[x+2][u+2],table[x+3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                             for a in table:
                                                 print(a)"""
-                                                
-                                                
+                           
                     if table[x][u] == "x":
                         if table[x-1][u] == "x":
                             pass
@@ -510,7 +505,6 @@ def checkWin(table,lit,final,floor,typ):
                                 pass
                                 if table[x][u+3] == "x":
                                     if u<4:
-                                        print("x wins h")
                                         finished(table,csvX,goes,X2,floor)
                                         """table[x][u],table[x][u+1],table[x][u+2],table[x][u+3]=table[x][u].upper(),table[x][u+1].upper(),table[x][u+2].upper(),table[x][u+3].upper()
                                         for a in table:
@@ -523,7 +517,6 @@ def checkWin(table,lit,final,floor,typ):
                                 if table[x-3][u+3] == "x":
                                     if x>2:
                                         if u<4:
-                                            print("x wins dr")
                                             finished(table,csvX,goes,X2,floor)
                                             """table[x][u],table[x-1][u+1],table[x-2][u+2],table[x-3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                             for a in table:
@@ -536,7 +529,6 @@ def checkWin(table,lit,final,floor,typ):
                                 if table[x+3][u+3] == "x":
                                     if x<3:
                                         if u<4:
-                                            print("x wins dd")
                                             finished(table,csvX,goes,X2,floor)
                                             """table[x][u],table[x+1][u+1],table[x+2][u+2],table[x+3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                             for a in table:
@@ -654,7 +646,7 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
             
         else:
             humanInput = legitimateMoves(table,floor,X2,Y2,goes,csvX)
-            
+ 
         if humanInput != "narnia":
             humanInput = int(humanInput)
             if humanInput not in range(7):
