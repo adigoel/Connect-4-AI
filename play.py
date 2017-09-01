@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Aug 22 03:35:24 2017
-
 @author: adityagoel
 """
 
@@ -106,7 +105,6 @@ def predict(b, X2, classifier, sc):
         x = [x]
         x = np.array(x)4
         predictions.append(classifier.predict(sc.transform(x)))
-
     h = [0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,1.000,0.000,0.000,1.000,1.000,0.000,0.000,1.000,1.000,0.000,0.000,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,1.000,0.000,0.000,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000]
     new_prediction = classifier.predict(sc.transform(np.array([h])))
     print(new_prediction)
@@ -167,7 +165,7 @@ def trainer(ingame,X2,a,Y2,goes,csvX):
         classifier.add(Dense(units = 42, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
         classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-        classifier.fit(X_train, y_train, batch_size = 25, epochs = 3)
+        classifier.fit(X_train, y_train, batch_size = 25, epochs = 2)
         y_pred = classifier.predict(X_test)
         y_pred = (y_pred > 0.5)
         predictions = []
@@ -690,10 +688,11 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
         my = True
 
     if turn == "o":
-        
         goes = goes + 1
-        """humanInput = input("Enter column (0-6)")"""
-        humanInput = int(random.randint(0,6))
+        
+        """HERE IS WHERE TO CHANGE THE PLAYER METHOD AS SHOWN IN THE README"""
+        humanInput = input("Enter column (0-6)")
+        """humanInput = int(random.randint(0,6))"""
         """humanInput = competitorHeuristic(table,floor)"""
         print("Thinking")
         
@@ -722,24 +721,7 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
             floor[humanInput]=floor[humanInput]-1
             for x in table:
                 print(x)
-            
-
-        if humanInput != "narnia":
-            humanInput = int(humanInput)
-            if humanInput not in range(7):
-                main(goes,turn,floor,table,False,X2,Y2,csvX)
-            if floor[humanInput]==-1:
-                print("Column full")
-                #print(floor)
-                main(goes,turn,floor,table,False,X2,Y2,csvX)
-            if checkWin(table,0,False,floor,"o") == "o wins":
-                finished(table,csvX,goes,X2,floor)
-                for x in table:
-                    print(x)
-                return
-            
-            table[floor[humanInput]][humanInput] = "o"
-            floor[humanInput]=floor[humanInput]-1        
+                  
 
         gameArray = []
         for z in range(7):
