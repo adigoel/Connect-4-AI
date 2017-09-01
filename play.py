@@ -552,65 +552,66 @@ def checkWin(table,lit,final,floor,typ):
         if lit == 999:
             pass
         else:
-            table[floor[lit]][lit] = "x"
+            table[floor[lit]][lit] = typ
         for x in range(5,-1,-1):
             for u in range(7):
                 try:
                          
-                    if table[x][u] == "x":
-                        if table[x-1][u] == "x":
+                    if table[x][u] == typ:
+                        if table[x-1][u] == typ:
                             pass
-                            if table[x-2][u] == "x":
+                            if table[x-2][u] == typ:
                                 pass
-                                if table[x-3][u] == "x":
+                                if table[x-3][u] == typ:
                                     if x > 2:
-                                        print("x wins v")
+                                        table[floor[lit]][lit] = "b"
                                         return("win")
                                         """table[x][u],table[x-1][u],table[x-2][u],table[x-3][u]=table[x][u].upper(),table[x-1][u].upper(),table[x-2][u].upper(),table[x-3][u].upper()
                                         for a in table:
                                             print(a)"""
                         
-                        if table[x][u+1] == "x":
+                        if table[x][u+1] == typ:
                             pass
-                            if table[x][u+2] == "x":
+                            if table[x][u+2] == typ:
                                 pass
-                                if table[x][u+3] == "x":
+                                if table[x][u+3] == typ:
                                     if u<4:
-                                        print("x wins h")
+                                        table[floor[lit]][lit] = "b"
                                         return("win")
                                         
                                         """table[x][u],table[x][u+1],table[x][u+2],table[x][u+3]=table[x][u].upper(),table[x][u+1].upper(),table[x][u+2].upper(),table[x][u+3].upper()
                                         for a in table:
                                             print(a)"""
                         
-                        if table[x-1][u+1] == "x":
+                        if table[x-1][u+1] == typ:
                             pass
-                            if table[x-2][u+2] == "x":
+                            if table[x-2][u+2] == typ:
                                 pass
-                                if table[x-3][u+3] == "x":
+                                if table[x-3][u+3] == typ:
                                     if x>2:
                                         if u<4:
-                                            print("x wins dr")
+                                            table[floor[lit]][lit] = "b"
                                             return("win")
                                             """table[x][u],table[x-1][u+1],table[x-2][u+2],table[x-3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                             for a in table:
                                                 print(a)"""
                         
-                        if table[x+1][u+1] == "x":
+                        if table[x+1][u+1] == typ:
                             pass
-                            if table[x+2][u+2] == "x":
+                            if table[x+2][u+2] == typ:
                                 pass
-                                if table[x+3][u+3] == "x":
+                                if table[x+3][u+3] == typ:
                                     if x<3:
                                         if u<4:
-                                            print("x wins dd")
+                                            table[floor[lit]][lit] = "b"
                                             return("win")
                                             """table[x][u],table[x+1][u+1],table[x+2][u+2],table[x+3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                             for a in table:
                                                 print(a)"""
                         
                 except IndexError:
-                    pass        
+                    pass 
+        table[floor[lit]][lit] = "b"        
         return("nah")
     
     return
