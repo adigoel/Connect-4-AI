@@ -746,7 +746,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             pass
                             if table[x][u+3] == "o":
                                 if u<4:
-                                    print("x wins h")
                                     finished(table,csvX,goes,X2,floor)
                                     
                                     """table[x][u],table[x][u+1],table[x][u+2],table[x][u+3]=table[x][u].upper(),table[x][u+1].upper(),table[x][u+2].upper(),table[x][u+3].upper()
@@ -760,7 +759,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             if table[x-3][u+3] == "x":
                                 if x>2:
                                     if u<4:
-                                        print("x wins dr")
                                         finished(table,csvX,goes,X2,floor)
                                         
                                         """table[x][u],table[x-1][u+1],table[x-2][u+2],table[x-3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
@@ -774,7 +772,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             if table[x+3][u+3] == "x":
                                 if x<3:
                                     if u<4:
-                                        print("x wins dd")
                                         finished(table,csvX,goes,X2,floor)
                                         
                                         """table[x][u],table[x+1][u+1],table[x+2][u+2],table[x+3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
@@ -791,7 +788,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             pass
                             if table[x-3][u] == "o":
                                 if x > 2:
-                                    print("o wins v")
                                     finished(table,csvX,goes,X2,floor)
                                     
                                     """table[x][u],table[x-1][u],table[x-2][u],table[x-3][u]=table[x][u].upper(),table[x-1][u].upper(),table[x-2][u].upper(),table[x-3][u].upper()
@@ -804,7 +800,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             pass
                             if table[x][u+3] == "o":
                                 if u<4:
-                                    print("o wins h")
                                     finished(table,csvX,goes,X2,floor)
                                     """table[x][u],table[x][u+1],table[x][u+2],table[x][u+3]=table[x][u].upper(),table[x][u+1].upper(),table[x][u+2].upper(),table[x][u+3].upper()
                                     for a in table:
@@ -817,7 +812,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             if table[x-3][u+3] == "o":
                                 if x>2:
                                     if u<4:
-                                        print("o wins dr")
                                         finished(table,csvX,goes,X2,floor)
                                         """table[x][u],table[x-1][u+1],table[x-2][u+2],table[x-3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                         for a in table:
@@ -830,7 +824,6 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                             if table[x+3][u+3] == "o":
                                 if x<3:
                                     if u<4:
-                                        print("o wins dd")
                                         finished(table,csvX,goes,X2,floor)
                                         """table[x][u],table[x+1][u+1],table[x+2][u+2],table[x+3][u+3]=table[x][u].upper(),table[x-1][u+1].upper(),table[x-2][u+2].upper(),table[x-3][u+3].upper()
                                         for a in table:
