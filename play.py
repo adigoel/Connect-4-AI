@@ -317,6 +317,7 @@ def legitimateMoves(table,floor,X2,Y2,goes,csvX):
        
         
         if checkWin(table,x,True,floor,"x") == "win":
+            goes = goes+1
             finished(table,csvX,goes,X2,floor)
 
         elif checkWin(table,x,True,floor,"o") == "win":
