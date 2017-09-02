@@ -318,8 +318,10 @@ def legitimateMoves(table,floor,X2,Y2,goes,csvX):
        
         
         if checkWin(table,x,True,floor,"x") == "win":
+            table[floor[x]][x] = "b"
             return(x)
         elif checkWin(table,x,True,floor,"o") == "win":
+            table[floor[x]][x] = "b"
             return(x)
         else:
             #print("norm")
@@ -604,7 +606,7 @@ def checkWin(table,lit,final,floor,typ):
         table[floor[lit]][lit] = "b"        
         return("nah")
     
-    return
+    return("k")
 
   
 ai = "x"
@@ -630,10 +632,8 @@ csvX = []
 def main(goes,turn,floor,table,won,X2,Y2,csvX):
         
     if won == True:
-        for a in table:
-            print(a)
-        finished(final,csvX,goes,won,X2,table,floor)
-
+        memory(True,csvX,goes,X2,table,floor)
+    
     if floor == [-1, -1, -1, -1, -1, -1]:
         for x in table:
                 print(x)
@@ -649,17 +649,14 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
  
         if humanInput != "narnia":
             humanInput = int(humanInput)
-            if humanInput not in range(7):
+            if humanInput not in range(7) or humanInput == "":
                 main(goes,turn,floor,table,False,X2,Y2,csvX)
             if floor[humanInput]==-1:
                 print("Column full")
                 #print(floor)
                 main(goes,turn,floor,table,False,X2,Y2,csvX)
-            if checkWin(table,0,False,floor,"x") == "x wins":
-                finished(table,csvX,goes,X2,floor)
-                for x in table:
-                    print(x)
-                return
+            if checkWin(table,99,False,floor,"o") == "k": 
+                print("\n")
             
             table[floor[humanInput]][humanInput] = "x"
             floor[humanInput]=floor[humanInput]-1
@@ -698,11 +695,8 @@ def main(goes,turn,floor,table,won,X2,Y2,csvX):
                 print("Column full")
                 #print(floor)
                 main(goes,turn,floor,table,False,X2,Y2,csvX)
-            if checkWin(table,0,False,floor,"x") == "x wins":
-                finished(table,csvX,goes,X2,floor)
-                for x in table:
-                    print(x)
-                return
+            if checkWin(table,99,False,floor,"x") == "k": 
+                print("\n")
             
             table[floor[humanInput]][humanInput] = "o"
             floor[humanInput]=floor[humanInput]-1
