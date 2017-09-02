@@ -25,11 +25,13 @@ def memory(final,csvX,goes,X2,table,floor):
         csvY = []
         if (goes%2) == 1:
             reward = 1
+            print("\n"+"x wins"+"\n")
             for x in reversed(csvX):    
                 u = alpha**t
                 csvY.append(u*reward)
                 t +=1
         else:
+            print("\n"+"o wins"+"\n")
             reward = 0.5
             for x in csvX:    
                 u = (alpha*0.8)**t
@@ -52,13 +54,10 @@ def memory(final,csvX,goes,X2,table,floor):
             pass
             
         for z in csvX:
-            print(z)
             if type(z[-2])==float:
                 del z[-1]
             z = [0]+z
-            z = ",".join(map(str,z))
-            print(z)
-            
+            z = ",".join(map(str,z))            
             fd = open('connect-4.csv','a')
             fd.write("\n"+ z)
             fd.close()
