@@ -23,7 +23,7 @@ def memory(final,csvX,goes,X2,table,floor):
         alpha = 0.9
         t = 0
         csvY = []
-        if checkWin(table,999,True,floor,"x") == "win":
+        if (goes%2) == 1:
             reward = 1
             for x in reversed(csvX):    
                 u = alpha**t
