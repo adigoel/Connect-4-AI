@@ -33,8 +33,7 @@ To train the model against a heuristic algorithm, uncomment the relevant lines.
 
 Example output should look like:
 
-[["b", "b", "b", "b", "b", "b", "b"],
- ["b", "b", "b", "b", "b", "b", "b"],
+[["b", "b", "b", "b", "b", "b", "b"],                                                                                        ["b", "b", "b", "b", "b", "b", "b"],
  ["b", "b", "b", "b", "b", "b", "b"],
  ["b", "b", "b", "x", "b", "b", "b"],
  ["b", "b", "o", "o", "b", "b", "b"],
