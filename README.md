@@ -43,3 +43,5 @@ Example output should look like:
 Have Fun!
 
 Each time a game ends a new one starts so do ctrl+c to move quit!
+
+All files have now been merged to allow easy use.
