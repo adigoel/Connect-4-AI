@@ -609,7 +609,8 @@ def checkWin(table,lit,final,floor,typ):
                         
                 except IndexError:
                     pass 
-        table[floor[lit]][lit] = "b"        
+        if lit in range(0,6):
+            table[floor[lit]][lit] = "b"        
         return("nah")
     
     return("k")
